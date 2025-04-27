@@ -7,17 +7,17 @@ data "aws_ami" "imagem_ec2" {
     }
 }
 
-data "aws_security_group" "grupo_d_sg" {
+data "aws_security_group" "sidral_sg" {
   filter {
     name   = "group-name"         # O campo que queremos filtrar (o nome do SG)
-    values = ["sg_grupo_d"]        # O nome real do seu SG
+    values = ["sidral_sg"]        # O nome real do seu SG
   }
 }
 resource "aws_instance" "backend_ec2" {
   instance_type = "t3.micro"
   ami = data.aws_ami.imagem_ec2.id
   subnet_id = var.sn_pub01
-  vpc_security_group_ids = [data.aws_security_group.grupo_d_sg.id]
+  vpc_security_group_ids = [data.aws_security_group.sidral_sg.id]
   key_name = data.aws_key_pair.lb_ssh_key_pair_grupo_d.key_name
   associate_public_ip_address = true
   tags = {
