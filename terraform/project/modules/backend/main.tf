@@ -13,19 +13,19 @@ data "aws_security_group" "sidral_sg" {
     values = ["sidral_sg"]        # O nome real do seu SG
   }
 }
-resource "aws_instance" "backend_ec2" {
+resource "aws_instance" "s-backend_ec2" {
   instance_type = "t3.micro"
   ami = data.aws_ami.imagem_ec2.id
-  subnet_id = var.sn_pub01
+  subnet_id = var.sidral-sn_pub01
   vpc_security_group_ids = [data.aws_security_group.sidral_sg.id]
-  key_name = data.aws_key_pair.lb_ssh_key_pair_grupo_d.key_name
+  key_name = data.aws_key_pair.lb_ssh_key_pair_sidral.key_name
   associate_public_ip_address = true
   tags = {
-    Name = "back-end_grupo-d"
+    Name = "sidral-back-end"
   }
   
 }
-data "aws_key_pair" "lb_ssh_key_pair_grupo_d" {
-  key_name   = "grupo_d_key_pare"
- # public_key = tls_private_key.lb_ssh_key_grupo_d.public_key_openssh
+data "aws_key_pair" "lb_ssh_key_pair_sidral" {
+  key_name   = "sidral_key_pair"
+
 }
