@@ -1,8 +1,5 @@
-resource "aws_vpc" "sidral_vpc" {
-  cidr_block = "172.102.0.0/16"
-  tags = {
-    Name = "sidral-vpc"
-  }
+data "aws_vpc" "sidral_vpc" {
+  id = "vpc-0bec9b838f67e4b57"  # ID da sua VPC
 }
 module "vpc" {
     source = "./modules/vpc"
