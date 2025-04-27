@@ -13,9 +13,6 @@ data "aws_security_group" "sidral_sg" {
     values = ["sidral_sg"]        # O nome real do seu SG
   }
 }
-re
-
-
 resource "aws_instance" "backend_ec2" {
   instance_type = "t3.micro"
   ami = data.aws_ami.imagem_ec2.id
