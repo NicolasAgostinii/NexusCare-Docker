@@ -5,7 +5,7 @@ data "aws_vpc" "sidral_vpc" {
 
 resource "aws_subnet" "sidral-sn_pub01" {
   vpc_id = data.aws_vpc.sidral_vpc.id
-  cidr_block = "172.102.1.0/24"
+  cidr_block = "172.102.11.0/24"
   availability_zone = "us-west-1b"
   tags = {
     Name = "sidral-sn-pub01"
