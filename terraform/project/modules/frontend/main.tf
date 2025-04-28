@@ -31,14 +31,7 @@ resource "aws_instance" "grupo_d_frontend_ec2" {
   tags = {
     Name = "grupo_d-frontend_ec2"
   }
-  user_data = <<-EOF
-    #!/bin/bash
-    yum update -y
-    amazon-linux-extras install frontend1 -y
-    systemctl start frontend
-    systemctl enable frontend
-    echo "<h1>Olá, Mundo!</h1>" > /usr/share/frontend/html/index.html
-  EOF
+  
 }
 
 # Criacao da chave SSH que sera usada para conexao na instancia
