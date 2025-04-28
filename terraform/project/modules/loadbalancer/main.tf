@@ -18,7 +18,7 @@ data "aws_security_group" "grupo_d_sg" {
 resource "aws_network_interface" "grupo_d_nginx_ei" {
   subnet_id = var.sn_pub01
   tags = {
-    Name = "grupo_d_nginx_pub"
+    Name = "sidral-pub"
   }
 }
 
@@ -35,12 +35,7 @@ resource "aws_instance" "grupo_d_nginx_ec2" {
 
 }
 
-# Criacao da chave SSH que sera usada para conexao na instancia
-#resource "tls_private_key" "lb_ssh_key" {
-#  algorithm = "RSA"
-#  rsa_bits  = 2048
-#}
-data "aws_key_pair" "lb_ssh_key_pair_grupo_d" {
-  key_name   = "grupo_d_key_pare"
- # public_key = tls_private_key.lb_ssh_key.public_key_openssh
+data "aws_key_pair" "lb_ssh_key_pair_sidral" {
+  key_name   = "sidral_key_pair"
+
 }
