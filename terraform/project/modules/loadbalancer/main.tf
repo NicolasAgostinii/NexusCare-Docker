@@ -27,7 +27,7 @@ resource "aws_instance" "grupo_d_nginx_ec2" {
   ami = data.aws_ami.imagem_ec2.id
   subnet_id = var.sn_pub01
   vpc_security_group_ids = [data.aws_security_group.sidral_sg.id]
-  key_name =  data.aws_key_pair.lb_ssh_key_pair_grupo_d.key_name
+  key_name =  data.aws_key_pair.lb_ssh_key_pair_sidral.key_name
   associate_public_ip_address = true
   tags = {
     Name = "sidral-nginx"
