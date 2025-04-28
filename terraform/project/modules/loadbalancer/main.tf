@@ -30,7 +30,7 @@ resource "aws_instance" "grupo_d_nginx_ec2" {
   key_name =  data.aws_key_pair.lb_ssh_key_pair_grupo_d.key_name
   associate_public_ip_address = true
   tags = {
-    Name = "grupo_d-nginx_ec2"
+    Name = "sidral-nginx"
   }
 
 }
