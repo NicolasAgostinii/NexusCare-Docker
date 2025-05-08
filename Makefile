@@ -1,4 +1,4 @@
-PROJETO = sidral
+PROJETO = nexus-care
 REGION = us-west-1
 
 default: deploy
