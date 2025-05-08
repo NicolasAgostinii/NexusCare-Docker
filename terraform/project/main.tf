@@ -1,4 +1,4 @@
-data "aws_vpc" "sidral_vpc" {
+data "aws_vpc" "nexus_vpc" {
   id = "vpc-0326b5a4ed4695435"  # ID da sua VPC
 }
 module "vpc" {
