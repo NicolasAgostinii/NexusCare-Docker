@@ -7,25 +7,25 @@ data "aws_ami" "imagem_ec2" {
     }
 }
 
-data "aws_security_group" "sidral_sg" {
+data "aws_security_group" "nexus_sg" {
   filter {
     name   = "group-name"         # O campo que queremos filtrar (o nome do SG)
-    values = ["sidral_sg"]        # O nome real do seu SG
+    values = ["nexus-sg"]        # O nome real do seu SG
   }
 }
 resource "aws_instance" "s-backend_ec2" {
   instance_type = "t3.micro"
   ami = data.aws_ami.imagem_ec2.id
   subnet_id = var.sn_pub01
-  vpc_security_group_ids = [data.aws_security_group.sidral_sg.id]
-  key_name = data.aws_key_pair.lb_ssh_key_pair_sidral.key_name
+  vpc_security_group_ids = [data.aws_security_group.nexus_sg.id]
+  key_name = data.aws_key_pair.lb_ssh_key_pair_nexus.key_name
   associate_public_ip_address = true
   tags = {
-    Name = "sidral-back-end"
+    Name = "nexus-back-end"
   }
   
 }
-data "aws_key_pair" "lb_ssh_key_pair_sidral" {
-  key_name   = "sidral_key_pair"
+data "aws_key_pair" "lb_ssh_key_pair_nexus" {
+  key_name   = "nexus_key_pair"
 
 }
