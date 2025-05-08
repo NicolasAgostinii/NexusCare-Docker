@@ -3,15 +3,9 @@ data "aws_vpc" "nexus_vpc" {
 }
 
 
-resource "aws_subnet" "nexus-sn_pub01" {
-  vpc_id = data.aws_vpc.nexus_vpc.id
-  cidr_block = "172.102.11.0/24"
-  availability_zone = "eu-west-1a"
-  tags = {
-    Name = "nexus-sn-pub01"
+data "aws_subnet" "nexus_subnetpub01"{
+id = "subnet-0c166bf0a23a66867"
   }
-}
-
 
 resource "aws_internet_gateway" "nexus-igw" {
   vpc_id = data.aws_vpc.nexus_vpc.id
