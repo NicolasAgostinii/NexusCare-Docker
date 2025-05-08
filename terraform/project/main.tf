@@ -1,5 +1,5 @@
 data "aws_vpc" "sidral_vpc" {
-  id = "vpc-0bec9b838f67e4b57"  # ID da sua VPC
+  id = "vpc-0326b5a4ed4695435"  # ID da sua VPC
 }
 module "vpc" {
     source = "./modules/vpc"
