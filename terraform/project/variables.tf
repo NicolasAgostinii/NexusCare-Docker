@@ -1,9 +1,9 @@
 variable "project_region" {
-    default = "us-west-1"
+    default = "eu-west1"
     type = string
 }
 
 variable "project_name" {
-    default="grupo-d"
+    default="nexus-care"
     type=string
 }
