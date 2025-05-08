@@ -1,5 +1,5 @@
 PROJETO = nexus-care
-REGION = us-west-1
+REGION = eu-west-1
 
 default: deploy
 
