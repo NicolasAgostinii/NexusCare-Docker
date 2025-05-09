@@ -5,7 +5,7 @@ data "aws_vpc" "nexus_vpc" {
 
 resource "aws_subnet" "sn_pub01" {
   vpc_id = data.aws_vpc.nexus_vpc.id
-  cidr_block = "172.102.3.0/24"
+  cidr_block = "172.16.3.0/24"
   availability_zone = "eu-west-1a"
   tags = {
     Name = "nexus-subnet-pub"
