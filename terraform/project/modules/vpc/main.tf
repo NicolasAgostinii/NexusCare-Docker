@@ -31,7 +31,7 @@ resource "aws_route_table" "nexus-route_pub" {
 }
 
 resource "aws_route_table_association" "pub01assoc" {
-  subnet_id = aws_subnet.nexus-sn_pub.id
+  subnet_id = aws_subnet.sn_pub01.id
   route_table_id = aws_route_table.nexus-route_pub.id
 }
 
