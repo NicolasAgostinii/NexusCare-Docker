@@ -10,7 +10,7 @@ data "aws_ami" "imagem_ec2" {
 data "aws_security_group" "nexus_sg" {
   filter {
     name   = "group-name"         # O campo que queremos filtrar (o nome do SG)
-    values = ["nexus-sg"]        # O nome real do seu SG
+    values = ["nexus_sg"]        # O nome real do seu SG
   }
 }
 resource "aws_instance" "s-backend_ec2" {
