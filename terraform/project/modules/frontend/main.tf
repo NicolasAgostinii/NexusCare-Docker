@@ -24,7 +24,7 @@ resource "aws_network_interface" "grupo_d_frontend_ei" {
 resource "aws_instance" "grupo_d_frontend_ec2" {
   instance_type = "t3.micro"
   ami = data.aws_ami.imagem_ec2.id
-  subnet_id = aws_subnet.sn_pub01.id
+  subnet_id = var.sn_pub01
   vpc_security_group_ids = [data.aws_security_group.nexus_sg.id]
   key_name =  data.aws_key_pair.lb_ssh_key_pair_nexus.key_name
   associate_public_ip_address = true
