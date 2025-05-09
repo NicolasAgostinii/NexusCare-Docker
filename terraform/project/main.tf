@@ -1,5 +1,5 @@
 data "aws_vpc" "nexus_vpc" {
-  id = "vpc-0326b5a4ed4695435"  # ID da sua VPC
+  id = "vpc-0baab92eeab9e7971"  # ID da sua VPC
 }
 module "vpc" {
     source = "./modules/vpc"
