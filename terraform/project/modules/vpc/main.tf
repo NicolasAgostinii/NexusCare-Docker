@@ -4,7 +4,7 @@ data "aws_vpc" "nexus_vpc" {
 
 
 resource "aws_subnet" "sn_pub01" {
-  vpc_id = aws_subnet.nexus-sn_pub01.id
+  vpc_id = data.aws_vpc.nexus_vpc.id
   cidr_block = "172.102.3.0/24"
   availability_zone = "eu-west-1a"
   tags = {
@@ -31,7 +31,7 @@ resource "aws_route_table" "nexus-route_pub" {
 }
 
 resource "aws_route_table_association" "pub01assoc" {
-  subnet_id = data.aws_subnet.nexus-sn_pub01.id
+  subnet_id = aws_subnet.nexus-sn_pub01.id
   route_table_id = aws_route_table.nexus-route_pub.id
 }
 
