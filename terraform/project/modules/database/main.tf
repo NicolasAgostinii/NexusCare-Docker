@@ -16,7 +16,7 @@ data "aws_security_group" "nexus_sg" {
 resource "aws_instance" "backend_ec2" {
   instance_type = "t3.micro"
   ami = data.aws_ami.imagem_ec2.id
-  subnet_id = aws_subnet.sn_pub01.id
+  subnet_id = data.aws_subnet.sn_pub01.id
   vpc_security_group_ids = [data.aws_security_group.nexus_sg.id]
   key_name =  data.aws_key_pair.lb_ssh_key_pair_nexus.key_name
 
